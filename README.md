@@ -27,7 +27,7 @@ provider "proxmox" {
 }
 ```
 
-The docs I used here was [:material-web: Proxmox Terraform Official Documentation](https://registry.terraform.io/providers/bpg/proxmox/0.71.0)
+The docs I used here was [Proxmox Terraform Official Documentation](https://registry.terraform.io/providers/bpg/proxmox/0.71.0)
 
 Then I made sure to download the correct ISO file from Talos with QEMU support added
 
@@ -40,7 +40,7 @@ factory image with qemu:
              - siderolabs/qemu-guest-agent
 ```
 
-[:material-web: Factory image Talos](https://factory.talos.dev/image/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515/v1.9.3/metal-amd64.iso)
+[Factory image Talos](https://factory.talos.dev/image/ce4c980550dd2ab1b17bbf2b08801c7eb59418eafe8f279833297925d67c7515/v1.9.3/metal-amd64.iso)
 
 See talos-iso.tf file for more info. 
 
