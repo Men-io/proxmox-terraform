@@ -1,20 +1,21 @@
 resource "proxmox_virtual_environment_vm" "talos_vm" {
-  name        = "terraform-provider-proxmox-talos-vm"
+  for_each = { for vm in var.vm_configs : vm.vm_id => vm }
+
+  name        = each.value.name
   description = "Managed by Terraform"
-  tags        = ["terraform", "talos"]
+  tags        = each.value.tags
 
   node_name = "thor"
-  vm_id     = 501
+  vm_id     = each.value.vm_id
 
   cdrom {
     file_id = "local:iso/talos_v1.9.3.iso"
   }
 
   agent {
-    # read 'Qemu guest agent' section, change to true only when ready
     enabled = false
   }
-  # if agent is not enabled, the VM may not be able to shutdown properly, and may need to be forced off
+
   stop_on_destroy = true
 
   startup {
@@ -24,20 +25,20 @@ resource "proxmox_virtual_environment_vm" "talos_vm" {
   }
 
   cpu {
-    cores = 2
-    type  = "x86-64-v2-AES" # recommended for modern CPUs
+    cores = each.value.cpu_cores
+    type  = "x86-64-v2-AES"
   }
 
   memory {
-    dedicated = 2048
-    floating  = 2048 # set equal to dedicated to enable ballooning
+    dedicated = each.value.memory_size
+    floating  = each.value.memory_size
   }
 
   disk {
     datastore_id = "local-lvm"
     file_format  = "raw"
     interface    = "scsi0"
-    size         = "64"
+    size         = each.value.disk_size
   }
 
   network_device {
