@@ -44,6 +44,6 @@ factory image with qemu:
 
 See talos-iso.tf file for more info. 
 
-And then we created the VM. Please note! Make use to change the disks and network to your own device. 
+And then we created the VM. Please note! Make sure to change the disks and network to your own device. 
 
 Further variables and automate creating multiple machines, still in progress. 
