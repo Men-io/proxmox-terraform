@@ -28,7 +28,7 @@ terraform {
 }
 
 provider "proxmox" {
-  endpoint = "https://192.168.178.46:8006"
+  endpoint = "https://YOURIP:8006"
   insecure = true
 }
 
