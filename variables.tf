@@ -6,22 +6,22 @@ variable "cluster_name" {
 
 variable "default_gateway" {
   type    = string
-  default = "192.168.178.1"
+  default = "YOUR_IP_ADDRESS"
 }
 
 variable "talos_cp_01_ip_addr" {
   type    = string
-  default = "192.168.178.41"
+  default = "YOUR_IP_ADDRESS"
 }
 
 variable "talos_worker_01_ip_addr" {
   type    = string
-  default = "192.168.178.42"
+  default = "YOUR_IP_ADDRESS"
 }
 
 variable "talos_worker_02_ip_addr" {
   type    = string
-  default = "192.168.178.43"
+  default = "YOUR_IP_ADDRESS"
 }
 
 variable "github_token" {
