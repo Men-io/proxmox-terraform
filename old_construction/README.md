@@ -20,7 +20,7 @@ terraform {
 }
 
 provider "proxmox" {
-  endpoint = "https://192.168.178.46:8006" #use you domain name or local ip to connect
+  endpoint = "https://YOURIP:8006" #use you domain name or local ip to connect
   username = "root@pam" #default user is root
   password = var.pm_password
   insecure = true
